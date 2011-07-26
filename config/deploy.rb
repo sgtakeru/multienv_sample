@@ -3,11 +3,14 @@ set :application, "multienv_sample"
 default_run_options[:pty] = true  # Must be set for the password prompt from git to work
 set :repository, "git@github.com:sgtakeru/multienv_sample.git"  # Your clone URL
 set :scm, "git"
-set :user, "shigemori"  # The server's user for deploys
+set :user, "ec2-user"  # The server's user for deploys
 set :scm_passphrase, "p@ssw0rd"  # The deploy user's password
 
-set :deploy_to, "/tmp/#{application}"
-set :server_name, "localhost"
+set :deploy_to, "/var/#{application}"
+set :server_name, "ec2-175-41-220-139.ap-northeast-1.compute.amazonaws.com"
+
+
+ssh_options[:keys] = %w(/home/shigemori/.ssh/haw-docomo-seo.pem)
 
 role :web, server_name                          # Your HTTP server, Apache/etc
 role :app, server_name                          # This may be the same as your `Web` server
