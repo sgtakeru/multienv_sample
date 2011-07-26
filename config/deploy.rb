@@ -11,7 +11,15 @@ set :copy_strategy, :export
 set :copy_compression, :zip
 set :use_sudo, false
 
-set :deploy_to, "/var/#{application}"
+set :rails_env, "development"
+case rails_env
+when "hoge"
+  set :deploy_to, "/var/___sample/hoge/#{application}"
+
+when "development"
+  set :deploy_to, "/var/___sample/dev/#{application}"
+
+end
 set :server_name, "ec2-175-41-220-139.ap-northeast-1.compute.amazonaws.com"
 
 
