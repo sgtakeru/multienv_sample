@@ -5,6 +5,11 @@ set :repository, "git@github.com:sgtakeru/multienv_sample.git"  # Your clone URL
 set :scm, "git"
 set :user, "ec2-user"  # The server's user for deploys
 set :scm_passphrase, "p@ssw0rd"  # The deploy user's password
+set :deploy_via, :copy
+set :copy_cache, false
+set :copy_strategy, :export
+set :copy_compression, :zip
+set :use_sudo, false
 
 set :deploy_to, "/var/#{application}"
 set :server_name, "ec2-175-41-220-139.ap-northeast-1.compute.amazonaws.com"
