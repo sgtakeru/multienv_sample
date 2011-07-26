@@ -1,0 +1,27 @@
+<h1>Listing hoges</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Num</th>
+    <th>Desc</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @hoges.each do |hoge| %>
+  <tr>
+    <td><%= hoge.name %></td>
+    <td><%= hoge.num %></td>
+    <td><%= hoge.desc %></td>
+    <td><%= link_to 'Show', hoge %></td>
+    <td><%= link_to 'Edit', edit_hoge_path(hoge) %></td>
+    <td><%= link_to 'Destroy', hoge, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Hoge', new_hoge_path %>
