@@ -1,13 +1,18 @@
-set :application, "set your application name here"
-set :repository,  "set your repository location here"
+set :application, "multienv_sample"
 
-set :scm, :subversion
-# Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
+default_run_options[:pty] = true  # Must be set for the password prompt from git to work
+set :repository, "git@github.com:sgtakeru/multienv_sample.git"  # Your clone URL
+set :scm, "git"
+set :user, "shigemori"  # The server's user for deploys
+set :scm_passphrase, "p@ssw0rd"  # The deploy user's password
 
-role :web, "your web-server here"                          # Your HTTP server, Apache/etc
-role :app, "your app-server here"                          # This may be the same as your `Web` server
-role :db,  "your primary db-server here", :primary => true # This is where Rails migrations will run
-role :db,  "your slave db-server here"
+set :deploy_to, "/tmp/#{application}"
+set :server_name, "localhost"
+
+role :web, server_name                          # Your HTTP server, Apache/etc
+role :app, server_name                          # This may be the same as your `Web` server
+role :db,  server_name, :primary => true # This is where Rails migrations will run
+
 
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts
