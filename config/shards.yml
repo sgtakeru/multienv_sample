@@ -1,0 +1,33 @@
+octopus:
+  environments:
+    - development
+    - production
+  development:
+    shards:
+      hoge:
+        adapter: sqlite3
+        database: db/hoge.sqlite3
+        pool: 5
+        timeout: 5000
+    
+
+
+# octopus:
+#   development:
+#     dev:
+#       adapter: sqlite3
+#       database: db/development.sqlite3
+#       pool: 5
+#       timeout: 5000
+#     hoge:
+#       adapter: sqlite3
+#       database: db/hoge.sqlite3
+#       pool: 5
+#       timeout: 5000
+
+    # postgres_shard:
+    #   adapter: postgresql
+    #   username: postgres
+    #   password:
+    #   database: octopus_shard1
+    #   encoding: unicode
