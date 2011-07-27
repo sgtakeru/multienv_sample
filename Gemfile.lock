@@ -28,6 +28,8 @@ GEM
       activemodel (= 3.0.7)
       activesupport (= 3.0.7)
     activesupport (3.0.7)
+    ar-octopus (0.3.4)
+      activerecord (>= 2.3)
     arel (2.0.10)
     builder (2.1.2)
     capistrano (2.5.21)
@@ -36,6 +38,8 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.0.0)
+    capistrano-ext (1.2.1)
+      capistrano (>= 1.0.0)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     highline (1.6.1)
@@ -83,6 +87,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ar-octopus
   capistrano
+  capistrano-ext
   rails (= 3.0.7)
   sqlite3
